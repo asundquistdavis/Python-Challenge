@@ -20,7 +20,7 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     #skip first row with header strings
-    next(csvreader)
+    header = next(csvreader)
 
     # Go row by row in csvreader and save the canadate to list
     for ballot in csvreader:
@@ -56,6 +56,8 @@ if doane_votes > stockham_votes and doane_votes > degette_votes:
 # Print results results to terminal
 print('Election Results')
 print('------------------------------')
+print(f'Total Votes: {total_votes}')
+print('------------------------------')
 print(f'Charles Capser Stockham: {stockham_percent}% ({stockham_votes})')
 print(f'Diana DeGette: {degette_percent}% ({degette_votes})')
 print(f'Raymon Anthony Doane: {doane_percent}% ({doane_votes})')
@@ -68,6 +70,8 @@ txtpath = os.path.join('Analysis', 'elction_reults.txt')
 # Open txt file
 with open(txtpath, 'w') as txtfile:
     txtfile.write('Election Results\n')
+    txtfile.write('------------------------------\n')
+    txtfile.write(f'Total Votes: {total_votes}\n')
     txtfile.write('------------------------------\n')
     txtfile.write(f'Charles Capser Stockham: {stockham_percent}% ({stockham_votes})\n')
     txtfile.write(f'Diana DeGette: {degette_percent}% ({degette_votes})\n')

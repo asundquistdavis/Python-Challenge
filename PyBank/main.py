@@ -16,7 +16,7 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     
     # Skip over first row which has headers info
-    next(csvreader)
+    header = next(csvreader)
 
     # Go row by row in csvfile and convert the second value into an integer and store it as the profit - the first vaule is stored as a string
     for row in csvreader:
@@ -62,10 +62,10 @@ month_min = months[i_min]
 print('Financial Analysis')
 print('------------------------------------------------------')
 print(f'Total Months: {total_months}')
-print(f'Total Profit: {total_profit}')
-print(f'Average Change: {average_change}')
-print(f'Greatest Increase in Profits: {month_max} ({greatest_increase})')
-print(f'Greatest Decrease in Profits: {month_min} ({greatest_decrease})')
+print(f'Total Profit: ${total_profit}')
+print(f'Average Change: ${average_change}')
+print(f'Greatest Increase in Profits: {month_max} (${greatest_increase})')
+print(f'Greatest Decrease in Profits: {month_min} (${greatest_decrease})')
 
 # Create new folder and file to store results
 txtpath = os.path.join('Analysis', 'financial_analysis.txt')
@@ -73,7 +73,7 @@ with open(txtpath, 'w') as txtfile:
     txtfile.write('Financial Analysis\n')
     txtfile.write('------------------------------------------------------\n')
     txtfile.write(f'Total Months: {total_months}\n')
-    txtfile.write(f'Total Profit: {total_profit}\n')
-    txtfile.write(f'Average Change: {average_change}\n')
-    txtfile.write(f'Greatest Increase in Profits: {month_max} ({greatest_increase})\n')
-    txtfile.write(f'Greatest Decrease in Profits: {month_min} ({greatest_decrease})')
+    txtfile.write(f'Total Profit: ${total_profit}\n')
+    txtfile.write(f'Average Change: ${average_change}\n')
+    txtfile.write(f'Greatest Increase in Profits: {month_max} (${greatest_increase})\n')
+    txtfile.write(f'Greatest Decrease in Profits: {month_min} (${greatest_decrease})')
